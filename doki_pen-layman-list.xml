@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<layman>
+    <overlay
+        type = "git"
+        src = "git://github.com/dokipen/doki_pen-overlay.git"
+        name = "doki_pen"
+        contact = "doki_pen@doki-pen.org">
+
+        <description>Stuff I like</description>
+    </overlay>
+</layman>
+
