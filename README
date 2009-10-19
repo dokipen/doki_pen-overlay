@@ -1,0 +1,13 @@
+h1. doki_pen's Overlay
+
+h2. Layman (the easiest way to stay up to date)
+
+pre. $ emerge -av layman
+$ echo source /usr/portage/local/layman/make.conf >> /etc/make.conf
+$ sed '/^overlays/ a\            http://github.com/dokipen/doki_pen-overlay/raw/master/doki_pen-layman-list.xml' /etc/layman/layman.cfg
+$ layman --fetch
+$ layman --add doki_pen
+
+\# later that day...
+$ layman --sync doki_pen
+ 
