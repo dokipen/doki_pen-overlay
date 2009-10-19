@@ -1,0 +1,58 @@
+#!/sbin/runscript
+# Copyright 1999-2009 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License, v2 or later
+# $Header: Exp $
+
+opts="${opts} reload"
+
+# Defaults
+TRACD_PYTHON_EGG_CACHE="${TRACD_PYTHON_EGG_CACHE:-/var/lib/trac/egg-cache}"
+TRACD_INSTANCE_PORTS="${TRACD_INSTANCE_PORTS:-8000}"
+TRACD_USER="${TRACD_USER:-tracd}"
+TRACD_GROUP="${TRACD_GROUP:-tracd}"
+TRACD_PIDFILE="${TRACD_PIDFILE:-/var/run/tracd.pid}"
+TRACD_EXE="${TRACD_EXE:-/usr/bin/tracd}"
+TRACD_OPTS="${TRACD_OPTS:---env-parent-dir /var/lib/trac/}"
+
+depend(){
+    need net
+}
+
+start(){
+    #rm -Rf "${TRACD_PYTHON_EGG_CACHE}" 
+    for TRACD_PORT in ${TRACD_INSTANCE_PORTS}; do
+        ebegin "Starting tracd ${TRACD_PORT}"
+        start-stop-daemon --start --chuid "${TRACD_USER}:${TRACD_GROUP}" \
+            --pidfile "${TRACD_PIDFILE}.${TRACD_PORT}" --make-pidfile \
+            --background --env PYTHON_EGG_CACHE="${TRACD_PYTHON_EGG_CACHE}" \
+            --exec "${TRACD_EXE}" -- ${TRACD_OPTS} -p "${TRACD_PORT}"
+        eend $?
+    done
+}
+
+stop(){
+    for TRACD_PORT in ${TRACD_INSTANCE_PORTS}; do
+        ebegin "Stopping tracd ${TRACD_PORT}"
+        start-stop-daemon --stop --quiet \
+            --pidfile=${TRACD_PIDFILE}.${TRACD_PORT}
+        eend $?
+    done
+}
+
+reload(){
+    rm -rf "${TRACD_PYTHON_EGG_CACHE}" 
+    
+    COUNT=0
+    for TRACD_PORT in ${TRACD_INSTANCE_PORTS}; do
+        ebegin "Restart tracd ${TRACD_PORT}"
+        [ ${COUNT} -gt 0 ] && sleep 3
+        COUNT=$(($COUNT+1))
+        start-stop-daemon --stop --quiet \
+            --pidfile=${TRACD_PIDFILE}.${TRACD_PORT}
+        start-stop-daemon --start --chuid ${TRACD_USER}:${TRACD_GROUP} \
+            --pidfile ${TRACD_PIDFILE}.${TRACD_PORT} --make-pidfile \
+            --background --env PYTHON_EGG_CACHE="${TRACD_PYTHON_EGG_CACHE}" \
+            --exec ${TRACD_EXE} -- ${TRACD_OPTS} -p ${TRACD_PORT}
+        eend $?
+    done
+}
