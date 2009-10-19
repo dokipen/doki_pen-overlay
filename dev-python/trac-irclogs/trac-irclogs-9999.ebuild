@@ -19,7 +19,9 @@ DEPEND="
     >=dev-lang/python-2.6
 	dev-python/pytz
 	>=www-apps/trac-0.11.5
-	search? dev-python/whoosh
+	search? (
+		dev-python/whoosh
+	)
 "
 
 S=${WORKDIR}/${MY_P}
