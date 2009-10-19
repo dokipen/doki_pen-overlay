@@ -13,7 +13,7 @@ ESVN_REPO_URI="http://trac-hacks.org/svn/irclogsplugin/parsing_refactor"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~x86"
-IUSE=""
+IUSE="search"
 
 DEPEND="
     >=dev-lang/python-2.6
