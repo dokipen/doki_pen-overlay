@@ -16,7 +16,7 @@ KEYWORDS="~x86"
 IUSE=""
 
 DEPEND="
-    >=dev-python/python-2.6
+    >=dev-lang/python-2.6
 	dev-python/pytz
 	>=www-apps/trac-0.11.5
 	search? dev-python/whoosh

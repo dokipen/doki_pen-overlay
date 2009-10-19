@@ -18,7 +18,7 @@ KEYWORDS="~x86"
 IUSE=""
 
 DEPEND="
-    >=dev-python/python-2.6
+    >=dev-lang/python-2.6
 "
 
 S=${WORKDIR}/${MY_P}
