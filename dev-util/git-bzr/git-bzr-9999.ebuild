@@ -19,6 +19,6 @@ DEPEND="
 "
 
 src_install() {
-	insinto /usr/bin
-	doins "${S}/git-bzr"
+	exeinto "/usr/bin"
+	doexe "${S}/git-bzr"
 }
