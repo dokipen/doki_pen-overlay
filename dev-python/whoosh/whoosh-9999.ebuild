@@ -10,7 +10,7 @@ DESCRIPTION="Whoosh is a fast, pure-Python indexing and search library."
 HOMEPAGE="http://whoosh.ca/"
 EGIT_REPO_URI="git://github.com/dokipen/whoosh.git"
 EGIT_BRANCH="trunk"
-EGIT_TREE="trunk"
+EGIT_COMMIT="trunk"
 
 LICENSE="GPLv2"
 SLOT="0"
