@@ -70,6 +70,11 @@ pkg_setup() {
 	enewuser tracd -1 -1 -1 tracd
 }
 
+src_compile() {
+	epatch "${FILESDIR}/setuptools-fix.patch"
+	distutils_src_compile
+}
+
 src_install() {
 	webapp_src_preinst
 	distutils_src_install
