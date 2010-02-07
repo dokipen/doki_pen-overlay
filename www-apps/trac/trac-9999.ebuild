@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit distutils webapp subversion
+inherit distutils webapp git
 
 MY_PV=${PV/_beta/b}
 MY_P=Trac-${MY_PV}
@@ -14,7 +14,9 @@ DESCRIPTION="Trac is a minimalistic web-based project management, wiki and bug/i
 HOMEPAGE="http://trac.edgewall.com/"
 LICENSE="trac"
 
-ESVN_REPO_URI="http://svn.edgewall.org/repos/trac/trunk"
+EGIT_REPO_URI="git://github.com/dokipen/trac.git"
+EGIT_BRANCH="doki_pen"
+EGIT_COMMIT="doki_pen"
 
 IUSE="cgi fastcgi mysql postgres sqlite subversion tracd"
 
@@ -68,11 +70,6 @@ pkg_setup() {
 
 	enewgroup tracd
 	enewuser tracd -1 -1 -1 tracd
-}
-
-src_compile() {
-	epatch "${FILESDIR}/setuptools-fix.patch"
-	distutils_src_compile
 }
 
 src_install() {
