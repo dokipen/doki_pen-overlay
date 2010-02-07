@@ -28,10 +28,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-src_prepare(){
-	epatch "${FILESDIR}/${P}_test_fix.patch"
-}
-
 src_install() {
 	distutils_src_install
 
