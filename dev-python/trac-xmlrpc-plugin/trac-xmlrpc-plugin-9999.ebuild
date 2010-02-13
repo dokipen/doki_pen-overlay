@@ -4,7 +4,7 @@
 
 inherit distutils subversion
 
-MY_PN="trac-xmlrpc"
+MY_PN="trac-xmlrpc-plugin"
 MY_P="${MY_PN}-${PV}"
 DESCRIPTION="Remote Procedure Calls for Trac"
 HOMEPAGE="http://trac-hacks.org/wiki/XmlRpcPlugin"

@@ -6,7 +6,7 @@ inherit distutils git
 
 DESCRIPTION="Mercurial plugin for Trac."
 HOMEPAGE="http://github.com/dokipen/trac-hgplugin"
-EGIT_REPO_URI="git://github.com/dokipen/trac-hgplugin.git"
+EGIT_REPO_URI="git://github.com/dokipen/trac-hg-plugin.git"
 EGIT_BRANCH="doki_pen"
 EGIT_COMMIT="doki_pen"
 

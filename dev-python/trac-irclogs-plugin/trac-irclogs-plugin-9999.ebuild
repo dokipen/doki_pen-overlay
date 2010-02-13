@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: Exp $
 
-inherit distutils subversion
+inherit distutils git
 
-MY_PN="irclogs"
-MY_P="${MY_PN}-${PV}"
 DESCRIPTION="Irclogs is a trac plugin to view irclogs within trac."
 HOMEPAGE="http://trac-hacks.org/wiki/IrcLogsPlugin"
-ESVN_REPO_URI="http://trac-hacks.org/svn/irclogsplugin/parsing_refactor"
+EGIT_REPO_URI="http://github.com/dokipen/trac-irclogs-plugin.git"
+EGIT_BRANCH="trunk"
+EGIT_COMMIT="trunk"
 
 LICENSE="BSD"
 SLOT="0"
