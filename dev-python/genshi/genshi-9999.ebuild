@@ -2,8 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/www-apps/trac/trac-0.11.5.ebuild,v 1.4 2009/09/27 15:41:06 nixnut Exp $
 
-EAPI="2"
-NEED_PYTHON=2.3
+EAPI="3"
 
 inherit distutils subversion
 

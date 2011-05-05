@@ -3,6 +3,7 @@
 # $Header: Exp $
 
 # TODO: add conf.d/init.d stuff
+EAPI=3
 
 inherit distutils subversion
 
